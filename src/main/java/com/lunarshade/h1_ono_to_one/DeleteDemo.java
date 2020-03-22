@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreateDemo {
+public class DeleteDemo {
 
     public static void main(String[] args) {
         SessionFactory sessionFactory = new Configuration()
@@ -19,14 +19,13 @@ public class CreateDemo {
         try {
             session.beginTransaction();
 
-            Instructor instructor = new Instructor("Chad", "Darby", "darby@luv2code.com");
-            InstructorDetail instructorDetail = new InstructorDetail("http//www.luv2code/youtube", "Luv 2 code");
-            instructor.setInstructorDetail(instructorDetail);
-            instructorDetail.setInstructor(instructor);
-//            instructorDetail.setInstructor(instructor);
+            int id = 10;
+            InstructorDetail instructorDetail = session.get(InstructorDetail.class, id);
 
-//            Сохранятся оба объекта в БД cascade = CascadeType.ALL
-            session.save(instructorDetail);
+            if (instructorDetail!=null) {
+                session.delete(instructorDetail);
+            }
+
             session.getTransaction().commit();
             System.out.println("Сохранение завершено");
         } catch (Exception e) {e.printStackTrace();}
