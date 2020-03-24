@@ -102,9 +102,9 @@ public class Instructor {
         course.setInstructor(this);
     }
 
-//    @Override
-//    public String toString() {
-//        return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-//                + ", instructorDetail=" + instructorDetail + "]";
-//    }
+    @Override
+    public String toString() {
+        return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+                + ", instructorDetail=" + instructorDetail + "]";
+    }
 }
